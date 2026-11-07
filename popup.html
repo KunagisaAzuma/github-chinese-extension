@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GitHub 中文化插件</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <header class="head">
+        <img src="icons/icon48.png" alt="" class="logo">
+        <div class="title">
+            <h1>GitHub 中文化插件</h1>
+            <p class="sub" id="version">v1.9.4.4</p>
+        </div>
+    </header>
+
+    <section class="status" id="status" data-state="unknown">
+        <span class="dot"></span>
+        <span id="statusText">正在检测当前页面…</span>
+    </section>
+
+    <section class="panel">
+        <h2>功能开关</h2>
+
+        <label class="row">
+            <span class="row-text">
+                <strong>正则功能</strong>
+                <small>用正则规则翻译动态文案（更长、更灵活，偶尔可能误伤）</small>
+            </span>
+            <input type="checkbox" id="enable_RegExp">
+        </label>
+
+        <label class="row">
+            <span class="row-text">
+                <strong>描述翻译</strong>
+                <small>在仓库/Gist 简介旁显示「翻译」按钮，点击调用在线翻译</small>
+            </span>
+            <input type="checkbox" id="enable_transDesc">
+        </label>
+    </section>
+
+    <section class="panel">
+        <h2>扩展菜单</h2>
+        <div id="menus" class="menus">
+            <p class="muted">当前页面未提供额外菜单。</p>
+        </div>
+    </section>
+
+    <footer class="foot">
+        <button id="reload" class="btn">刷新当前页生效</button>
+        <a class="link" href="https://github.com/maboloshi/github-chinese" target="_blank" rel="noreferrer">项目主页</a>
+    </footer>
+
+    <script src="popup.js"></script>
+</body>
+</html>

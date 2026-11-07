@@ -1,0 +1,59 @@
+{
+  "manifest_version": 3,
+  "name": "GitHub 中文化插件",
+  "short_name": "GitHub 汉化",
+  "version": "1.9.4.4",
+  "description": "中文化 GitHub 界面的部分菜单及内容。由 maboloshi/github-chinese 用户脚本改造：词库本地打包、离线可用、设置持久化。",
+  "author": "沙漠之子 (maboloshi) / 扩展化改造",
+  "homepage_url": "https://github.com/maboloshi/github-chinese",
+  "minimum_chrome_version": "102",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_title": "GitHub 中文化插件",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://fanyi.iflyrec.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://github.com/*",
+        "https://gist.github.com/*",
+        "https://skills.github.com/*",
+        "https://education.github.com/*",
+        "https://www.githubstatus.com/*"
+      ],
+      "js": [
+        "src/gm-api.js",
+        "src/locals.js",
+        "src/main.js",
+        "src/bootstrap.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": false,
+      "match_about_blank": false
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}
